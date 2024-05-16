@@ -42,14 +42,14 @@ imgs.forEach((img, i) => {
     })
 
 // carousel timer
-setInterval(function () {
+// setInterval(function () {
     
-    currentImg++
-    if (currentImg === imgs.length) currentImg = 0
-    imgs.forEach((img,i) => {
-        img.style.transform = `translateX(${100 * (i - currentImg)}%)`
-    })
-}, 6000)
+//     currentImg++
+//     if (currentImg === imgs.length) currentImg = 0
+//     imgs.forEach((img,i) => {
+//         img.style.transform = `translateX(${100 * (i - currentImg)}%)`
+//     })
+// }, 6000)
 
 //Toggle arrows on buttons event listeners
 learnMoreButtons.forEach(button => {
@@ -61,15 +61,18 @@ learnMoreButtons.forEach(button => {
 })
 
 
-
+// scroll to
 sidebarLinks.forEach((link, i) => {
     link.addEventListener(`click`, function (e) {
         console.log(e.target.getAttribute(`name`))
         console.log(i)
-        toggleSidebar()        
+        toggleSidebar()
+        window.scrollTo(0, pages[i].offsetTop)
     })
 })
 
 console.log(favTrips.getBoundingClientRect())
 
-bookTrip.style.marginTop = `${carousel.getBoundingClientRect().height-471}px`
+window.addEventListener(`resize`, function () {
+    bookTrip.style.marginTop = `${document.querySelector(`.carousel img`).getBoundingClientRect().height-471}px`
+})
