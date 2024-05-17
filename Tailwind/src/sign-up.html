@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./output.css">
     <script defer src="./register.js"></script>
-    <title>Document</title>
+    <title>Sign up</title>
 </head>
 <body>
     <article class="relative flex items-center justify-center h-screen overflow-hidden lg:flex-row lg:w-screen">
@@ -28,29 +28,29 @@
                 <p class="self-center md:text-2xl lg:text-base">Or</p>
                 <div class="h-0.5 w-2/5 bg-black"></div>
             </div>
-            <form action="" class="flex flex-col">
+            <form action="#" class="sign-up-form flex flex-col">
                 
                     <label class=" my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2" for="f-name">First name:</label>
-                    <input class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 f-name" type="text" name="f-name" id="f-name">
+                    <input required  class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 f-name" type="text" name="f-name" id="f-name">
                     <label class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2" for="l-name">Last name:</label>
-                    <input class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 l-name" type="text" name="l-name" id="l-name">
+                    <input required  class=" bg-gray-400 rounded-sm p-1 h-7 md:h-10 l-name" type="text" name="l-name" id="l-name">
                  
                  <div class="flex flex-row items-center">
                 <label class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:mt-0" style="margin-right: 2rem;" for="country">Country:</label>
-                <select class="h-7 shadow-xl text-xl lg:text-lg country" name="country" id="country">
+                <select required class="h-7 shadow-xl text-xl lg:text-lg country" name="country" id="country">
                     <option value="canada">Canada</option>
                     <option value="usa">United States</option>
                     <option value="mexico">Mexico</option>
                 </select></div>
                 <label class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2" for="sign-up-email">Email:</label>
-                <input class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 sign-up-email" type="text" name="sign-up-email" id="sign-up-email">
-                <label class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2" for="sign-up-password">Password:</label>
-                <input class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 sign-up-password" type="password" name="sign-up-password" id="sign-up-password">
+                <input required  class=" bg-gray-400 rounded-sm p-1 h-7 md:h-10 sign-up-email" type="email" name="sign-up-email" id="sign-up-email">
+                <label class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2 " for="sign-up-password">Password:</label>
+                <input required maxlength="20" minlength="5"  class=" bg-gray-400 rounded-sm p-1 h-7 md:h-10 sign-up-password password" type="password" name="sign-up-password" id="sign-up-password">
                 <label class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2" for="confirm-password">Confirm password:</label>
-                <input class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 confirm-password" type="password" name="confirm-password" id="confirm-password">
+                <input required maxlength="20" minlength="5" class=" bg-gray-400 rounded-sm p-1 h-7 md:h-10 confirm-password password" type="password" name="confirm-password" id="confirm-password">
                 <div class="flex flex-row justify-between">
-                    <button class="submit-sign-up bg-lime-700 rounded-full p-2 text-white md:text-2xl md:p-2 lg:p-2 lg:text-lg lg:mt-4 lg:w-40" style="margin-top:2rem;">Sign up</button>
-                    <button class="submit-sign-up bg-lime-700 rounded-full p-2 text-white md:text-2xl md:p-2 lg:p-2 lg:text-lg lg:mt-4 lg:w-40" style="margin-top:2rem;">Reset</button>
+                    <button type="submit" class="submit-sign-up bg-lime-700 rounded-full p-2 text-white md:text-2xl md:p-2 lg:p-2 lg:text-lg lg:mt-4 lg:w-40" style="margin-top:2rem;">Sign up</button>
+                    <button type="reset" class="submit-sign-up bg-lime-700 rounded-full p-2 text-white md:text-2xl md:p-2 lg:p-2 lg:text-lg lg:mt-4 lg:w-40" style="margin-top:2rem;">Reset</button>
                 </div>
                 
             </form>
