@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./output.css">
+    <script defer src="./register.js"></script>
 </head>
 <body>
     <article class="relative flex items-center justify-center h-screen overflow-hidden lg:flex-row lg:w-screen">
         <section class="lg:w-2/4 lg:h-screen lg:overflow-hidden lg:shrink-0">
-            <img class="h-screen object-cover absolute top-0 left-0 md:w-screen md:h-auto lg:w-2/4" src="../image-log-in/alex-azabache-V83v-MYB_Z8-unsplash.jpg" alt="">
+            <img class="h-screen object-cover absolute top-0 left-0 md:h-auto lg:w-2/4" src="../image-log-in/alex-azabache-V83v-MYB_Z8-unsplash.jpg" alt="">
             <div class="hidden lg:block lg:absolute lg:backdrop-blur-lg lg:left-0 lg:w-[calc(50%-8rem)] lg:bottom-0 lg:m-16 lg:opacity-85 lg:p-6 lg:rounded-lg">
                 <h1 class="text-xl mb-6 text-white">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non, consequuntur similique quibusdam reprehenderit magnam error modi quam veritatis blanditiis ea beatae nulla laudantium eaque omnis?"</h1>
                 <h1 class="text-2xl text-white">- Ava Anderson</h1>
             </div>
         </section>
         
-        <section class="absolute bg-white m-10 shadow-xl p-10 flex flex-col md:w-3/5 lg:relative rounded-md" >
+        <section class="sign-in-form absolute bg-white m-10 shadow-xl p-10 flex flex-col md:w-3/5 lg:relative rounded-md" >
             <h1 class="self-center text-2xl mb-4 md:text-4xl lg:text-xl"><span class="text-lime-700 font-medium">Sign in</span> to your account</h1>
             <p class="self-center mb-4 font-medium md:text-2xl lg:text-base">Welcome back!</p>
             <div class="self-center mb-4">
@@ -30,7 +31,7 @@
                 <div class="h-0.5 w-2/5 bg-black"></div>
             </div>
             
-            <form action="" class="flex flex-col">
+            <form action="#" class="flex flex-col">
                 <label class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2" for="email">Email:</label>
                 <input class="bg-gray-400 rounded-sm p-1 h-7 md:h-10" type="email" name="email" id="email">
                 <label class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2 " for="password">Password:</label>
@@ -40,12 +41,11 @@
                     <label for="remember" class="md:text-xl lg:text-base lg:my-0">Remember me?</label>
                     <input class="my-0" type="checkbox" name="remember" id="remember">
                 </div>
-                <button class="bg-lime-700 rounded-full p-2 text-white md:text-2xl md:p-4 lg:p-2 lg:text-lg lg:">Login</button>
-                <p class="mt-6 md:text-xl lg:text-base lg:mt-2">Don't have an account?<a class="font-medium text-lime-700" href=""> Sign up</a></p>
+                <button type="submit" value="Login" id="submit-log-in" class="bg-lime-700 rounded-full p-2 text-white md:text-2xl md:p-4 lg:p-2 lg:text-lg lg:">Login</button>
+                <p class="mt-6 md:text-xl lg:text-base lg:mt-2">Don't have an account?<a class="font-medium text-lime-700 sign-up" href="./sign-up.html"> Sign up</a></p>
             </form>
             
         </section>
-    </article>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
