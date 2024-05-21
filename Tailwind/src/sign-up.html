@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./output.css">
-    <script defer src="./register.js"></script>
+    <link rel="stylesheet" href="../style/output.css">
+    <script defer type="module" src="../script/register.js"></script>
     <title>Sign up</title>
 </head>
 <body>
     <article class="relative flex items-center justify-center h-screen overflow-hidden lg:flex-row lg:w-screen">
         <section class="lg:w-2/4 lg:h-screen lg:overflow-hidden lg:shrink-0">
-            <img class="h-screen object-cover absolute top-0 left-0 md:h-auto lg:w-2/4" src="../image-log-in/alex-azabache-V83v-MYB_Z8-unsplash.jpg" alt="">
+            <img class="w-screen object-cover absolute top-0 left-0 md:h-auto lg:w-2/4" style="min-height: 100vh;" src="../image-log-in/alex-azabache-V83v-MYB_Z8-unsplash.jpg" alt="">
             <div class="hidden lg:block lg:absolute lg:backdrop-blur-lg lg:left-0 lg:w-[calc(50%-8rem)] lg:bottom-0 lg:m-16 lg:opacity-85 lg:p-6 lg:rounded-lg">
                 <h1 class="text-xl mb-6 text-white">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non, consequuntur similique quibusdam reprehenderit magnam error modi quam veritatis blanditiis ea beatae nulla laudantium eaque omnis?"</h1>
                 <h1 class="text-2xl text-white">- Ava Anderson</h1>
@@ -50,11 +50,23 @@
                 <input required maxlength="20" minlength="5" class=" bg-gray-400 rounded-sm p-1 h-7 md:h-10 confirm-password password" type="password" name="confirm-password" id="confirm-password">
                 <div class="flex flex-row justify-between">
                     <button type="submit" class="submit-sign-up bg-lime-700 rounded-full p-2 text-white md:text-2xl md:p-2 lg:p-2 lg:text-lg lg:mt-4 lg:w-40" style="margin-top:2rem;">Sign up</button>
-                    <button type="reset" class="submit-sign-up bg-lime-700 rounded-full p-2 text-white md:text-2xl md:p-2 lg:p-2 lg:text-lg lg:mt-4 lg:w-40" style="margin-top:2rem;">Reset</button>
+                    <button class="reset-sign-up bg-lime-700 rounded-full p-2 text-white md:text-2xl md:p-2 lg:p-2 lg:text-lg lg:mt-4 lg:w-40" style="margin-top:2rem;">Reset</button>
                 </div>
                 
             </form>
         </section>
+        <section class="hidden modal--background" style="z-index: 2; top: 0%; left: 0%; height: 100vh; width: 100vw; position: absolute; background-color: black; opacity: 85%;"></section>
+        <section class="hidden modal absolute top-2/4 left-2/4 bg-white over rounded-md p-8 translate-x-[-50%] translate-y-[-50%] flex flex-col gap-2" style="z-index: 3;">
+            
+            <h1 class="text-2xl">Are you sure <span class="text-lime-700 font-medium">you</span> want to continue?</h1>
+            <div class="flex justify-between">
+                <button class="modal--yes bg-lime-700 p-1 w-20 rounded-full">Yes</button>
+                <button class="modal--no bg-lime-700 p-1 w-20 rounded-full">No</button>
+            </div>
+            
+        </section>
     </article>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

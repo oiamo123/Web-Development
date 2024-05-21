@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/output.css" />
+    <script defer type="module" src="../script/contact.js"></script>
+    <title>Sign up</title>
+  </head>
+  <body>
+    <article
+      class="relative flex items-center justify-center h-screen overflow-hidden lg:flex-row lg:w-screen"
+    >
+      <section class="lg:w-2/4 lg:h-screen lg:overflow-hidden lg:shrink-0">
+        <img
+          class="w-screen object-cover absolute top-0 left-0 md:h-auto lg:w-2/4"
+          style="min-height: 100vh"
+          src="../image-log-in/alex-azabache-V83v-MYB_Z8-unsplash.jpg"
+          alt=""
+        />
+        <div
+          class="hidden lg:block lg:absolute lg:backdrop-blur-lg lg:left-0 lg:w-[calc(50%-8rem)] lg:bottom-0 lg:m-16 lg:opacity-85 lg:p-6 lg:rounded-lg"
+        >
+          <h1 class="text-xl mb-6 text-white">
+            <ion-icon name="call-outline"></ion-icon> Phone Number: 555-555-5555
+            <br />
+            <ion-icon name="mail-outline"></ion-icon> Email:
+            travelagency@example.com<br />
+            <ion-icon name="home-outline"></ion-icon> Address: 123 Main St.
+            <br />
+          </h1>
+          <h1 class="text-2xl text-white">Contacy us</h1>
+        </div>
+      </section>
+      <section
+        class="sign-up-form bg-white shadow-xl m-10 p-10 flex flex-col md:w-3/5 lg:relative rounded-md"
+        style="z-index: 1"
+      >
+        <h1 class="self-center text-2xl mb-4 md:text-4xl lg:text-xl">
+          Contact <span class="text-lime-700 font-medium">us</span>
+        </h1>
+        <form action="#" class="sign-up-form flex flex-col">
+          <label
+            class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2"
+            for="f-name"
+            >First name:</label
+          >
+          <input
+            required
+            class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 f-name"
+            type="text"
+            name="f-name"
+            id="f-name"
+          />
+          <div class="description--f-name"></div>
+          <label
+            class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2"
+            for="l-name"
+            >Last name:</label
+          >
+          <input
+            required
+            class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 l-name"
+            type="text"
+            name="l-name"
+            id="l-name"
+          />
+          <div class="description--l-name"></div>
+          <label
+            class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2"
+            for="sign-up-email"
+            >Email:</label
+          >
+          <input
+            required
+            class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 sign-up-email"
+            type="email"
+            name="sign-up-email"
+            id="sign-up-email"
+          />
+          <div class="description--email"></div>
+          <label
+            class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2"
+            for="description"
+            >Description:</label
+          >
+          <textarea
+            required
+            maxlength="100"
+            minlength="5"
+            class="bg-gray-400 rounded-sm p-1 h-48 overflow-scroll description text-xl"
+            name="description"
+            id="description"
+          ></textarea>
+          <div class="description--desc"></div>
+          <button
+          type="submit"
+            class="submit-contact bg-lime-700 rounded-full p-2 text-white md:text-2xl md:p-2 lg:p-2 lg:text-lg lg:mt-4"
+            style="margin-top: 2rem"
+          >
+            Submit
+          </button>
+        </form>
+      </section>
+    </section>
+    <section class="hidden modal--background" style="z-index: 2; top: 0%; left: 0%; height: 100vh; width: 100vw; position: absolute; background-color: black; opacity: 85%;"></section>
+    <section class="hidden modal absolute top-2/4 left-2/4 bg-white over rounded-md p-8 translate-x-[-50%] translate-y-[-50%] flex flex-col gap-2" style="z-index: 3;">
+        
+        <h1 class="text-2xl">Are you sure <span class="text-lime-700 font-medium">you</span> want to continue?</h1>
+        <div class="flex justify-between">
+            <button class="modal--yes bg-lime-700 p-1 w-20 rounded-full"><a href="./index.html"></a>Yes</button>
+            <button class="modal--no bg-lime-700 p-1 w-20 rounded-full">No</button>
+        </div>
+        
+    </section>
+    </article>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
