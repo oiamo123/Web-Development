@@ -31,3 +31,12 @@ modalYes.addEventListener(`click`, (e) => {
 modalNo.addEventListener(`click`, () => {
   toggleModal();
 });
+
+inputs.forEach((input) => {
+  input.addEventListener(`mouseover`, function () {
+    input.nextElementSibling.classList.remove(`hidden`);
+  });
+  input.addEventListener(`mouseout`, function () {
+    input.nextElementSibling.classList.add(`hidden`);
+  });
+});
