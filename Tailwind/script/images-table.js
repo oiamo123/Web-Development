@@ -1,5 +1,9 @@
+// FOR IMAGES TABLES W/ DESCRIPTION PAGES
+// GAVIN OIAMO, 2024-05-22, COURSE MODULE, ASSIGNMENT
+
+// VARIABLES
 const table = document.querySelector("table");
-console.log(table);
+// ARRAY OF IMAGES AND DESCRIPTIONS
 const imgsAndDescs = [
   [
     `nav--carousol--1`,
@@ -15,6 +19,7 @@ const imgsAndDescs = [
   ],
 ];
 
+// LOOP THROUGH ARRAY OF IMAGES AND DESCRIPTIONS AND INSERT INTO TABLE
 for (let i = 0; i < imgsAndDescs[0].length; i++) {
   table.insertAdjacentHTML(
     `beforeend`,

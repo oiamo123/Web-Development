@@ -1,19 +1,17 @@
+// USED FOR FORM VALIDATION
+
 export {
   checkInputsForEmpty,
   checkInputsForPattern,
   toggleInputMessage,
   removeMessage,
+  submit,
+  setMarginBottom,
+  inputMouseOver,
 };
 export { regexObj, inputMessages };
 export { telRegex, nameRegex, emailRegex };
-
-// QUERYSELECTORS
-
-const inputs = document.querySelectorAll(`input`);
-const [...inputs1] = inputs;
-const submitButton = document.querySelector(`.submit--button`);
-const resetButton = document.querySelector(`.reset--button`);
-const form = document.querySelector(`form`);
+import { toggleModal } from "./modalToggle.js";
 
 // REGEXES
 const telRegex = /\d{3}[-. ]?\d{3}[-. ]?\d{4}$/;
@@ -21,14 +19,19 @@ const nameRegex = /[A-Za-z]+$/;
 const emailRegex =
   /[a-z0-9\._%+!$&*=^|~#%'`?{}/\-]+@([a-z0-9\-]+\.){1,}([a-z]{2,16})/;
 const descriptionRegex = /./;
+const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-// INPUT MESSAGES
-const inputMessages = {
-  ["f-name"]: `Please enter a valid first name in the format of 'John' or 'Johnson`,
-  ["l-name"]: `Please enter a valid last name in the format of 'John' or 'Johnson`,
-  ["tel"]: `Please enter a valid phone number in the format 555-555-5555 with or without a '-', '.' or space`,
-  ["email"]: `Please enter a valid email address in the format John@example.com`,
-  ["description"]: "Cannot be left empty",
+const inputMouseOver = function (inputs) {
+  inputs.forEach((input) => {
+    input.addEventListener("mouseover", () => {
+      setMarginBottom(input, `0px`);
+      toggleInputMessage(input, `This field is required`);
+    });
+    input.addEventListener(`mouseout`, () => {
+      setMarginBottom(input, `1.5rem`);
+      removeMessage(input);
+    });
+  });
 };
 
 const regexObj = {
@@ -37,15 +40,59 @@ const regexObj = {
   ["tel"]: telRegex,
   ["email"]: emailRegex,
   ["description"]: descriptionRegex,
+  ["password"]: passwordRegex,
+  ["confirm-password"]: passwordRegex,
 };
 
-// PREVENT FORM SUBMISSION BECAUSE IT WILL BE TRIGGERED BY THE SUBMIT BUTTON
-form.addEventListener(`submit`, (e) => {
-  e.preventDefault();
-});
+// INPUT MESSAGES
+const inputMessages = {
+  ["f-name"]: `Please enter a valid first name in the format of 'John' or 'Johnson`,
+  ["l-name"]: `Please enter a valid last name in the format of 'John' or 'Johnson`,
+  ["tel"]: `Please enter a valid phone number in the format 555-555-5555 with or without a '-', '.' or space`,
+  ["email"]: `Please enter a valid email address in the format John@example.com`,
+  ["description"]: "Cannot be left empty",
+  ["password"]: `Please enter a valid password with at least 8 characters and one number`,
+  ["confirm-password"]: `Please enter a valid password with at least 8 characters and one number`,
+  passwordsDontMatch: `Passwords do not match`,
+};
 
 // VARIABLES
 let inputsAreValid = [];
+
+const checkPasswords = function ([pass1, pass2]) {
+  if (pass1.value !== pass2.value) {
+    [pass1, pass2].forEach((pass) =>
+      toggleInputMessage(pass, inputMessages.passwordsDontMatch)
+    );
+    return false;
+  } else {
+    return true;
+  }
+};
+
+const submit = function (event, inputs) {
+  event.preventDefault();
+  // SETS MARGIN-BOTTOM TO PRERVENT OFFSET OF INPUTS AND MESSAGES
+  inputs.forEach((input) => setMarginBottom(input, `0px`));
+  checkInputsForEmpty(inputs);
+
+  // CHECKS FOR INPUTS WITH TEXT, SHOWS 'PLEASE ENTER VALID FORMAT' ON INVALID INPUTS
+  let myArr = checkInputsForPattern(inputs);
+  const passwords = inputs.filter((input) => input.type === "password");
+  myArr.push(checkPasswords(passwords));
+
+  console.log(myArr);
+  if (myArr.every((x) => x === true)) {
+    toggleModal();
+  }
+  myArr = [];
+  inputsAreValid = [];
+};
+
+// SETS MARGIN-BOTTOM OF EACH INPUT
+const setMarginBottom = function (input, value) {
+  input.style.marginBottom = value;
+};
 
 // TOGGLES INPUT MESSAGES UNDER INPUT IE 'THIS FIELD IS REQUIRED'
 const toggleInputMessage = function (input, message) {
@@ -103,15 +150,22 @@ const checkInputsForPattern = function (inputs) {
   return inputsAreValid;
 };
 
+// QUERYSELECTORS -> ARE SET IN OTHER FILES
+// const inputs = document.querySelectorAll(`input`);
+// const [...inputs1] = inputs;
+// const submitButton = document.querySelector(`.submit--button`);
+// const resetButton = document.querySelector(`.reset--button`);
+// const form = document.querySelector(`form`);
+
 // ADDS THIS FIELD IS REQUIRED MESSAGE TO EACH INPUT
-inputs1.forEach((input) => {
-  input.addEventListener("mouseover", () => {
-    toggleInputMessage(input, `This field is required`);
-  });
-  input.addEventListener(`mouseout`, () => {
-    removeMessage(input);
-  });
-});
+// inputs1.forEach((input) => {
+//   input.addEventListener("mouseover", () => {
+//     toggleInputMessage(input, `This field is required`);
+//   });
+//   input.addEventListener(`mouseout`, () => {
+//     removeMessage(input);
+//   });
+// });
 
 // submitButton.addEventListener(`click`, function (e) {
 //   e.preventDefault();
@@ -123,4 +177,9 @@ inputs1.forEach((input) => {
 //   }
 
 //   inputsAreValid = [];
+// });
+
+// PREVENT FORM SUBMISSION BECAUSE IT WILL BE TRIGGERED BY THE SUBMIT BUTTON
+// form.addEventListener(`submit`, (e) => {
+//   e.preventDefault();
 // });

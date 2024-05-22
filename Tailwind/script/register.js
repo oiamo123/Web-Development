@@ -1,5 +1,11 @@
-import { toggleModal, checkInput, clearInput } from "./modules/modalToggle.js";
+// FOR SIGN UP PAGE
+// GAVIN OIAMO, 2024-05-22, COURSE MODULE, ASSIGNMENT
+// IMPORTS
 
+import { submit, inputMouseOver } from "./modules/Form-Validation.js";
+import { toggleModal } from "./modules/modalToggle.js";
+
+// USER OBJECT
 class User {
   constructor(firstName, lastName, email, country, password) {
     this.firstName = firstName;
@@ -10,56 +16,53 @@ class User {
   }
 }
 
+// QUERY SELECTORS
+const submitButton = document.querySelector(`.submit-sign-up`);
 const password = document.querySelector(`.sign-up-password`);
 const confirmPassword = document.querySelector(`.confirm-password`);
 const inputs = document.querySelectorAll(
-  `#f-name, #l-name, #sign-up-email, #sign-up-password, #confirm-password`
+  `#f-name, #l-name, #email, #password, #confirm-password`
 );
 const modalYes = document.querySelector(`.modal--yes`);
 const modalNo = document.querySelector(`.modal--no`);
-const [...inputs1] = inputs;
+const form = document.querySelector(`form`);
+
+// VARIABLES
 let resetClicked = false;
+const [...inputs1] = inputs;
+// document
+//   .querySelector(`.sign-up-form`)
+//   .addEventListener(`submit`, function (e) {
+//     e.preventDefault();
+//     const firstName = document.querySelector(`.f-name`);
+//     const lastName = document.querySelector(`.l-name`);
+//     const email = document.querySelector(`.sign-up-email`);
+//     const country = document.querySelector(`.country`);
 
-document
-  .querySelector(`.sign-up-form`)
-  .addEventListener(`submit`, function (e) {
-    e.preventDefault();
-    const firstName = document.querySelector(`.f-name`);
-    const lastName = document.querySelector(`.l-name`);
-    const email = document.querySelector(`.sign-up-email`);
-    const country = document.querySelector(`.country`);
+//     if (password.value === confirmPassword.value) {
+//       new User(firstName, lastName, email, country);
+//       console.log(`user submitted`);
+//     }
+//   });
 
-    if (password.value === confirmPassword.value) {
-      new User(firstName, lastName, email, country);
-      console.log(`user submitted`);
-    }
-  });
+// document.querySelectorAll(`.password`).forEach((pass) => {
+//   pass.addEventListener(`input`, function () {
+//     console.log(password.value);
+//     console.log(confirmPassword.value);
+//     console.log(password.value === confirmPassword.value);
+//     if (password.value !== confirmPassword.value) {
+//       password.setCustomValidity(`Passwords do not match`);
+//     } else {
+//       password.setCustomValidity("");
+//     }
+//   });
+// });
+const clearInput = function (inputs) {
+  inputs.forEach((input) => (input.value = ""));
+};
 
-document.querySelectorAll(`.password`).forEach((pass) => {
-  pass.addEventListener(`input`, function () {
-    console.log(password.value);
-    console.log(confirmPassword.value);
-    console.log(password.value === confirmPassword.value);
-    if (password.value !== confirmPassword.value) {
-      password.setCustomValidity(`Passwords do not match`);
-    } else {
-      password.setCustomValidity("");
-    }
-  });
-});
-
-document.querySelector(`.submit-sign-up`).addEventListener(`click`, (e) => {
+form.addEventListener(`submit`, (e) => {
   e.preventDefault();
-  if (inputs1.every(checkInput) && password.value === confirmPassword.value) {
-    toggleModal();
-  } else {
-    inputs1.forEach((input) => {
-      if (input.value === "") {
-        input.setCustomValidity(`Fields cannot be empty`);
-        input.reportValidity();
-      }
-    });
-  }
 });
 
 document.querySelector(`.reset-sign-up`).addEventListener(`click`, (e) => {
@@ -81,3 +84,7 @@ modalYes.addEventListener(`click`, (e) => {
 modalNo.addEventListener(`click`, () => {
   toggleModal();
 });
+
+inputMouseOver(inputs1);
+
+submitButton.addEventListener(`click`, (e) => submit(e, inputs1));
