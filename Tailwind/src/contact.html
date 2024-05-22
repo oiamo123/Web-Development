@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style/output.css" />
     <script defer type="module" src="../script/contact.js"></script>
-    <title>Sign up</title>
+    <title>Contact</title>
   </head>
   <body>
     <article
@@ -41,13 +41,15 @@
         </h1>
         <form action="#" class="sign-up-form flex flex-col">
           <label
-            class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2"
+            class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2 mb-1"
+            
             for="f-name"
             >First name:</label
           >
           <input
-            required
+            
             class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 f-name"
+            style="margin-bottom: 1.5rem;"
             type="text"
             name="f-name"
             id="f-name"
@@ -59,8 +61,9 @@
             >Last name:</label
           >
           <input
-            required
+            
             class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 l-name"
+            style="margin-bottom: 1.5rem;"
             type="text"
             name="l-name"
             id="l-name"
@@ -68,15 +71,16 @@
           <div class="hidden text-md description--l-name">Please enter your last name. Do not include numbers</div>
           <label
             class="my-2 text-xl md:text-2xl md:my-4 lg:text-lg lg:my-2"
-            for="sign-up-email"
+            for="email"
             >Email:</label
           >
           <input
-            required
-            class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 sign-up-email"
+            
+            class="bg-gray-400 rounded-sm p-1 h-7 md:h-10 email "
+            style="margin-bottom: 1.5rem;"
             type="email"
-            name="sign-up-email"
-            id="sign-up-email"
+            name="email"
+            id="email"
           />
           <div class="hidden text-md description--email">Please enter a valid email</div>
           <label
@@ -85,10 +89,11 @@
             >Description:</label
           >
           <textarea
-            required
-            maxlength="100"
+            
+            maxlength="500"
             minlength="5"
             class="bg-gray-400 rounded-sm p-1 h-48 overflow-scroll description text-xl"
+            style="margin-bottom: 1.5rem;"
             name="description"
             id="description"
           ></textarea>

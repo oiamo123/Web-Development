@@ -25,8 +25,14 @@ h1 > span {
   color: #d29121;
 }
 
+nav {
+  position: relative;
+  top: 0%;
+}
+
 nav > .nav--bar {
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   display: flex;
@@ -65,7 +71,6 @@ nav > .carousel > img {
   top: 15vh;
   left: calc(1rem+100vw);
   width: 60vw;
-  margin-top: 2vw;
   padding: 2rem;
   border-radius: 2px;
 }
@@ -81,6 +86,10 @@ nav > .carousel > img {
   margin: 2rem 0;
   font-size: 22px;
   letter-spacing: 1px;
+}
+
+.head {
+  height: 100vh;
 }
 
 .learn--more--button {
@@ -188,7 +197,6 @@ nav > .carousel > img {
   align-items: center;
   justify-content: center;
   background-color: #5d7578;
-  bottom: -10%;
   padding: 3rem 1rem 0 1rem;
 }
 
@@ -736,7 +744,7 @@ a {
   }
 }
 
-@media screen and (min-width: 947px) {
+@media screen and (min-width: 900px) {
   nav > .carousel > img {
     position: absolute;
     left: 0;

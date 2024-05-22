@@ -72,10 +72,8 @@ sidebarLinks.forEach((link, i) => {
   });
 });
 
-console.log(favTrips.getBoundingClientRect());
-
-window.addEventListener(`resize`, function () {
-  bookTrip.style.marginTop = `${
-    document.querySelector(`.carousel img`).getBoundingClientRect().height - 471
-  }px`;
-});
+// window.addEventListener(`resize`, function () {
+//   bookTrip.style.marginTop = `${
+//     document.querySelector(`.carousel img`).getBoundingClientRect().height - 471
+//   }px`;
+// });
