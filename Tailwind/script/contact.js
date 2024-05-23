@@ -1,6 +1,6 @@
 // DOCUMENTATION
 // FOR CONTACT PAGE
-// GAVIN OIAMO, 2024-05-22, COURSE MODULE, ASSIGNMENT
+// GAVIN OIAMO, 2024-05-22, COURSE MODULE 4, ASSIGNMENT 4
 
 // IMPORTS
 // IMPORTS FOR MODAL
@@ -28,8 +28,8 @@ form.addEventListener(`submit`, (e) => {
 
 // EVENT LISTENER FOR MODAL YES BUTTON
 modalYes.addEventListener(`click`, (e) => {
-  window.location.href = "index.html";
-  console.log(`form submitted`);
+  // window.location.href = "index.html";
+  toggleModal();
 });
 
 // EVENT LISTENER FOR MODAL NO BUTTON

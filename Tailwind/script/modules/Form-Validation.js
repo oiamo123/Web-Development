@@ -1,4 +1,6 @@
 // USED FOR FORM VALIDATION
+// FOR IMAGES TABLES W/ DESCRIPTION PAGES
+// GAVIN OIAMO, 2024-05-22, COURSE MODULE 6, ASSIGNMENT 6
 
 export {
   checkInputsForEmpty,
@@ -15,24 +17,11 @@ import { toggleModal } from "./modalToggle.js";
 
 // REGEXES
 const telRegex = /\d{3}[-. ]?\d{3}[-. ]?\d{4}$/;
-const nameRegex = /[A-Za-z]+$/;
+const nameRegex = /^[A-Za-z]+$/;
 const emailRegex =
   /[a-z0-9\._%+!$&*=^|~#%'`?{}/\-]+@([a-z0-9\-]+\.){1,}([a-z]{2,16})/;
 const descriptionRegex = /./;
 const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-const inputMouseOver = function (inputs) {
-  inputs.forEach((input) => {
-    input.addEventListener("mouseover", () => {
-      setMarginBottom(input, `0px`);
-      toggleInputMessage(input, `This field is required`);
-    });
-    input.addEventListener(`mouseout`, () => {
-      setMarginBottom(input, `1.5rem`);
-      removeMessage(input);
-    });
-  });
-};
 
 const regexObj = {
   ["f-name"]: nameRegex,
@@ -59,6 +48,20 @@ const inputMessages = {
 // VARIABLES
 let inputsAreValid = [];
 
+// LISTENS FOR MOUSEOVER ON INPUTS
+const inputMouseOver = function (inputs) {
+  inputs.forEach((input) => {
+    input.addEventListener("mouseenter", () => {
+      setMarginBottom(input, `0px`);
+      toggleInputMessage(input, `This field is required`);
+    });
+    input.addEventListener(`mouseout`, () => {
+      setMarginBottom(input, `1.5rem`);
+      removeMessage(input);
+    });
+  });
+};
+
 const checkPasswords = function ([pass1, pass2]) {
   if (pass1.value !== pass2.value) {
     [pass1, pass2].forEach((pass) =>
@@ -80,9 +83,8 @@ const submit = function (event, inputs) {
   let myArr = checkInputsForPattern(inputs);
   const passwords = inputs.filter((input) => input.type === "password");
   myArr.push(checkPasswords(passwords));
-
-  console.log(myArr);
   if (myArr.every((x) => x === true)) {
+    console.log(`form submitted`);
     toggleModal();
   }
   myArr = [];
@@ -150,14 +152,14 @@ const checkInputsForPattern = function (inputs) {
   return inputsAreValid;
 };
 
-// QUERYSELECTORS -> ARE SET IN OTHER FILES
+// IGNORE THIS -> WAS FOR TESTING PURPOSES
 // const inputs = document.querySelectorAll(`input`);
 // const [...inputs1] = inputs;
 // const submitButton = document.querySelector(`.submit--button`);
 // const resetButton = document.querySelector(`.reset--button`);
 // const form = document.querySelector(`form`);
 
-// ADDS THIS FIELD IS REQUIRED MESSAGE TO EACH INPUT
+// ADDS 'THIS FIELD IS REQUIRED' MESSAGE TO EACH INPUT
 // inputs1.forEach((input) => {
 //   input.addEventListener("mouseover", () => {
 //     toggleInputMessage(input, `This field is required`);

@@ -71,8 +71,6 @@ learnMoreButtons.forEach((button) => {
 // SCROLL TO SECTION WHEN SIDEBAR LINK IS CLICKED
 sidebarLinks.forEach((link, i) => {
   link.addEventListener(`click`, function (e) {
-    console.log(e.target.getAttribute(`name`));
-    console.log(i);
     toggleSidebar();
     window.scrollTo(0, pages[i].offsetTop);
   });

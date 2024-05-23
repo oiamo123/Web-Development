@@ -1,3 +1,10 @@
+/* 
+    DOCUMENTATION
+    FOR MAIN PAGE
+    GAVIN OIAMO, 2024-05-22, COURSE MODULE 2/3, ASSIGNMENT 2/3
+    USED TAILWIND CSS TO STYLE REGISTER PAGES (SIGN-IN/SIGN-UP) & CONTACT PAGE
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

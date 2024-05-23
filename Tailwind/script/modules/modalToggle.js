@@ -1,4 +1,6 @@
 // FOR MODALS
+// DOCUMENTATION
+// GAVIN OIAMO, 2024-05-22, COURSE MODULE 4, ASSIGNMENT 4
 
 // EXPORTS
 export { toggleModal, checkInput, clearInput };
