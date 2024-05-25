@@ -54,6 +54,7 @@ document.querySelectorAll(`.description`).forEach((desc) => {
 });
 
 document.querySelectorAll(`.image`).forEach((img, i) => {
+  console.log(this);
   img.addEventListener(`click`, function (e) {
     // OPEN NEW WINDOW
     const newWindow = window.open(`about:`, "_blank");
