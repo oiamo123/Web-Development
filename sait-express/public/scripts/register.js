@@ -9,7 +9,7 @@ form.addEventListener(`submit`, (e) => {
   e.preventDefault();
 });
 
-// inputMouseOver(inputs1);
+inputMouseOver(inputs1);
 
 submitButton.addEventListener(`click`, (e) => {
   e.preventDefault();

@@ -1,13 +1,16 @@
 const express = require("express");
+const greeting = require("./public/scripts/modules/greeting");
 const app = express();
+console.log(greeting());
 
 app.use(express.static("views"));
 app.use(express.static("public/stylesheets"));
 app.use(express.static("public/scripts"));
+app.use(express.static("views"));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "index");
+  res.sendFile(__dirname + `/views/main-pages/${greeting()}.html`);
 });
 
 app.get("/overview", (req, res) => {

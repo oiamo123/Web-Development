@@ -3,6 +3,10 @@ const fs = require("fs");
 const url = require("url");
 const moment = require("moment");
 const today = moment().format("MMMM d, yyyy");
+const greeting = require("./greeting");
+
+const myGreeting = greeting();
+console.log(myGreeting);
 console.log(today);
 
 const port = 8000;
