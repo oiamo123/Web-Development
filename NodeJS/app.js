@@ -1,43 +1,43 @@
-const http = require("http");
-const fs = require("fs");
-const url = require("url");
-const moment = require("moment");
-const today = moment().format("MMMM d, yyyy");
-const greeting = require("./greeting");
+const express = require("express");
+const app = express();
+const path = require("path");
 
-const myGreeting = greeting();
-console.log(myGreeting);
-console.log(today);
+app.set("views", "public");
+app.set("view engine", "pug");
+app.use(express.urlencoded({ extended: true }));
 
-const port = 8000;
-const address = "127.0.0.1";
-
-// Server
-
-const readFileFunc = function (path, response) {
-  fs.readFile(path, "utf-8", (err, data) => {
-    if (err) {
-      response.end(`${err}`);
-    }
-    response.writeHead(200, { "Content-type": "text/html" });
-    response.write(data);
-    response.end();
+app.get(["/", "/overview"], (req, res) => {
+  res.status(200).render("overview", {
+    greetings: ["Hello", "Bonjour", "Hola", "Hallo"],
   });
-};
-
-const server = http.createServer((req, res) => {
-  if (req.url === "/" || req.url === "/overview") {
-    readFileFunc(`./public/overview.html`, res);
-  } else if (req.url === "/contact" || req.url === "/register")
-    readFileFunc(`./public/${req.url}.html`, res);
-  else {
-    res.writeHead(404, { "Content-type": "text/html" });
-    res.write(`<h1>404 Not Found</h1>`);
-  }
 });
 
-server.listen(port, address, () => {
-  console.log(`server is listening...`);
+app.get("/contact", (req, res) => {
+  res.status(200).render(__dirname + "/public/contact.pug");
 });
 
-// Files
+app.get("/register", (req, res) => {
+  res.status(200).render(__dirname + "/public/register.pug");
+});
+
+app.get("/create-post", (req, res) => {
+  res.status(200).render(__dirname + "/public/create-post.pug");
+});
+
+app.post("/create-post", (req, res) => {
+  console.log(req.body);
+  res.status(200).render(__dirname + "/public/create-post.pug");
+});
+
+// app.get("*", (req, res) => {
+//   res.status(200).render(__dirname + "/public/404.pug");
+// });
+
+app.use(checkNotFound);
+function checkNotFound(req, res, next) {
+  res.status(404).send(`Page not found`);
+}
+
+app.listen(8000, (req, res) => {
+  console.log(`The server is listening`);
+});

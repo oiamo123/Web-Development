@@ -116,6 +116,7 @@ textarea {
 form > div {
   height: 16px;
   font-size: 12px;
+  color: red;
 }
 
 button {

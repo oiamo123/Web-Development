@@ -1,0 +1,8 @@
+extends template.pug
+block content
+  each greeting in greetings
+    h1= greeting
+    p the birds are listening 
+    a(href="/contact") Contact 
+    a(href="/register") Register
+    a(href="/create-post") create post 

@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "express": "^4.19.2",
     "moment": "^2.30.1",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "pug": "^3.0.3"
   },
   "name": "nodejs",
   "version": "1.0.0",

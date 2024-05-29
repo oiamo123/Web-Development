@@ -1,0 +1,14 @@
+extends ../mainPageTemplate.pug 
+
+block title  
+ title Evening
+block stylesheets
+  link(rel="stylesheet", href=`/evening.css`)
+  link(rel="stylesheet", href="/evening.css")
+block scripts 
+  script(src=`/script.js`) 
+block timeGreeting 
+  .time= time
+  .greeting= greeting
+block img
+  img(src=`/evening.jpg`, alt="", srcset="")

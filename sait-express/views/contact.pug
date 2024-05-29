@@ -1,0 +1,23 @@
+extends template.pug 
+block scripts 
+  script(defer type="module" src="/contact.js")
+block stylesheets 
+  link(rel="stylesheet", href="/contact.css")
+block content 
+  nav
+    a(href='/overview') Home
+    a(href='/register') Register
+  form(action='/contact' method='post')
+    label(for='f-name') First Name:
+    input#f-name(type='f-name' name='f-name')
+    div
+    label(for='l-name') Last Name:
+    input#l-name(type='l-name' name='l-name')
+    div
+    label(for='email') Email:
+    input#email(type='text' name='email')
+    div
+    label(for='description') Description:
+    textarea#description(name='description')
+    div
+  button.submit--button Submit 

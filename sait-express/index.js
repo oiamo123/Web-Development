@@ -1,45 +1,60 @@
 const express = require("express");
 const greeting = require("./public/scripts/modules/greeting");
 const app = express();
-console.log(greeting());
+const path = require("path");
+const pug = require("pug");
+let curPage = "";
 
-app.use(express.static("views"));
+app.set("views", "views");
+// app.set("views", "views/main-pages");
+app.set("view engine", "pug");
+
+// app.use(express.static("views"));
 app.use(express.static("public/stylesheets"));
 app.use(express.static("public/scripts"));
-app.use(express.static("views"));
+app.use(express.static("views/images"));
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + `/views/main-pages/${greeting()}.html`);
-});
-
-app.get("/overview", (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
+app.get(["/", "/overview"], (req, res) => {
+  const date = new Date().toDateString();
+  curPage = greeting();
+  res.status(200).render(`main-pages/${curPage}`, {
+    title: curPage,
+    greeting: `Good ${curPage}`,
+    time: date,
+  });
 });
 
 app.get("/contact", (req, res) => {
-  res.sendFile(__dirname + "/views/contact.html");
+  res.status(200).render("contact");
 });
 
 app.get("/register", (req, res) => {
-  res.sendFile(__dirname + "/views/register.html");
+  res.status(200).render("register");
 });
 
 app.get("/confirm", (req, res) => {
-  res.sendFile(__dirname + "/views/confirm.html");
+  res.status(200).render("confirm");
 });
 
 app.get("/create-post", (req, res) => {
-  res.sendFile(__dirname + "/views/create-post.html");
+  res.status(200).render("create-post");
+  console.log(req.body);
 });
 
 // app.get("/contactform", (req, res) => {
 //   console.log(req);
 // });
 
-app.post("/contactform", (req, res) => {
+app.post("/contact", (req, res) => {
   console.log(req.body);
-  res.redirect("/confirm");
+  res.redirect("confirm");
+});
+
+app.post("/register", (req, res) => {
+  console.log(`test`);
+  console.log(req.body);
+  res.redirect("confirm");
 });
 
 app.use((req, res, next) => {

@@ -14,4 +14,7 @@ inputMouseOver(inputs1);
 submitButton.addEventListener(`click`, (e) => {
   e.preventDefault();
   submit(e, inputs1);
+  inputs1.forEach((input) => {
+    console.log(input.value);
+  });
 });

@@ -80,7 +80,9 @@ const submit = function (event, inputs) {
   // CHECKS FOR INPUTS WITH TEXT, SHOWS 'PLEASE ENTER VALID FORMAT' ON INVALID INPUTS
   let myArr = checkInputsForPattern(inputs);
   const passwords = inputs.filter((input) => input.type === "password");
-  if (passwords.length > 0) myArr.push(checkPasswords(passwords));
+  if (passwords.length > 0) {
+    myArr.push(checkPasswords(passwords));
+  }
   if (myArr.every((x) => x === true)) {
     form.submit();
   }
