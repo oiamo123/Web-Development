@@ -93,31 +93,31 @@ header > img {
   min-height: 100vh;
 }
 
+.article--1 {
+  background-color: black;
+}
+
+.article--2 {
+  background-color: #ead2a4;
+}
+
 .article--1,
 .article--2 {
-  background-color: #030301;
   margin-top: -1px;
   color: white;
   padding: 2rem 3rem;
-}
-
-.article--1 {
-  padding-bottom: 4rem;
-}
-
-.article--2 {
-  background-color: #ecd2a4;
   position: relative;
 }
 
-.article--2 > p {
+.article--2 > p,
+.article--1 > p {
   position: relative;
 }
 
-.article--2 > p::before {
+.article--2 > p::before,
+.article--1 > p::before {
   display: inline-block;
   content: "";
-  background-color: #2f3231;
   height: 3px;
   width: 60vw;
   z-index: 2;
@@ -127,7 +127,17 @@ header > img {
   border-radius: 9999px;
 }
 
-.card--box {
+.article--1 > p::before {
+  background-color: white;
+  bottom: 0;
+}
+
+.article--2 > p::before {
+  background-color: #2f3231;
+}
+
+.card--box--2,
+.card--box--1 {
   flex-shrink: 0;
   display: flex;
   flex-direction: row;
@@ -139,7 +149,8 @@ header > img {
   gap: 2rem;
 }
 
-.card--2 {
+.card--2,
+.card--1 {
   padding: 2rem;
   height: fit-content;
   width: 65vw;
@@ -147,6 +158,12 @@ header > img {
   height: 65vw;
   background-color: #2f3231;
   scroll-snap-align: center;
+}
+
+.card--1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .card--2 p {
@@ -242,11 +259,9 @@ footer a {
   .p--header {
     font-size: 24px;
   }
-  .article--1 {
-    padding: 15rem;
-  }
 
-  .article--2 {
+  .article--2,
+  .article--1 {
     display: flex;
     flex-direction: row;
     position: relative;
@@ -257,27 +272,31 @@ footer a {
     width: 100vw;
   }
 
-  .article--2 > p::before {
+  .article--2 > p::before,
+  .article--1 > p::before {
     width: 40vw;
     bottom: -40%;
     left: -5%;
   }
 
-  .article--2 > p {
+  .article--2 > p,
+  .article--1 > p {
     position: absolute;
     width: 80vw;
     top: 20%;
     left: 10%;
   }
 
-  .article--2 > h1 {
+  .article--2 > h1,
+  .article--1 > h1 {
     position: absolute;
     top: 0;
     right: 50%;
     transform: translateX(50%);
   }
 
-  .card--box {
+  .card--box--2,
+  .card--box--1 {
     width: 70vw;
     position: absolute;
     left: 50%;
@@ -285,7 +304,8 @@ footer a {
     bottom: 0%;
   }
 
-  .card--2 {
+  .card--2,
+  .card--1 {
     height: 40vh;
     flex-grow: 0;
     width: 20vw;

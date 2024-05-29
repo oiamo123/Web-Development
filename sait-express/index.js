@@ -3,6 +3,7 @@ const greeting = require("./public/scripts/modules/greeting");
 const app = express();
 const path = require("path");
 const pug = require("pug");
+const mySql = require("mysql");
 let curPage = "";
 
 app.set("views", "views");
@@ -14,6 +15,27 @@ app.use(express.static("public/stylesheets"));
 app.use(express.static("public/scripts"));
 app.use(express.static("views/images"));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+const connection = mySql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "travelexperts",
+});
+
+connection.connect(function (err) {
+  if (err) throw err;
+  console.log(`Connected to mySql Database!`);
+});
+
+connection.query("SELECT * FROM packages", (err, results) => {
+  if (err) {
+    throw err;
+  } else {
+    console.log(results);
+  }
+});
 
 app.get(["/", "/overview"], (req, res) => {
   const date = new Date().toDateString();
@@ -22,6 +44,17 @@ app.get(["/", "/overview"], (req, res) => {
     title: curPage,
     greeting: `Good ${curPage}`,
     time: date,
+  });
+});
+
+app.get("/packages", (req, res) => {
+  connection.query("SELECT * FROM packages", (err, results) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log(results);
+      res.status(200).json(results);
+    }
   });
 });
 
