@@ -4,6 +4,7 @@ const app = express();
 const path = require("path");
 const pug = require("pug");
 const mySql = require("mysql");
+const api = require("./api.js");
 let curPage = "";
 
 app.set("views", "views");
@@ -16,6 +17,7 @@ app.use(express.static("public/scripts"));
 app.use(express.static("views/images"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use("/api", api);
 
 const connection = mySql.createConnection({
   host: "localhost",
@@ -36,16 +38,6 @@ app.get(["/", "/overview"], (req, res) => {
     title: curPage,
     greeting: `Good ${curPage}`,
     time: date,
-  });
-});
-
-app.get("/packages", (req, res) => {
-  connection.query("SELECT * FROM packages", (err, results) => {
-    if (err) {
-      throw err;
-    } else {
-      res.status(200).json(results);
-    }
   });
 });
 

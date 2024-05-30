@@ -26,7 +26,7 @@ const insertAgents = function (packages) {
   });
 };
 
-const data = fetch(`/packages`, { method: "GET" })
+const data = fetch(`/api/packages`, { method: "GET" })
   .then((res) => res.json())
   .then((packages) => insertAgents(packages))
   .catch((err) => {
