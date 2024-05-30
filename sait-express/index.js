@@ -29,14 +29,6 @@ connection.connect(function (err) {
   console.log(`Connected to mySql Database!`);
 });
 
-connection.query("SELECT * FROM packages", (err, results) => {
-  if (err) {
-    throw err;
-  } else {
-    console.log(results);
-  }
-});
-
 app.get(["/", "/overview"], (req, res) => {
   const date = new Date().toDateString();
   curPage = greeting();
@@ -52,7 +44,6 @@ app.get("/packages", (req, res) => {
     if (err) {
       throw err;
     } else {
-      console.log(results);
       res.status(200).json(results);
     }
   });

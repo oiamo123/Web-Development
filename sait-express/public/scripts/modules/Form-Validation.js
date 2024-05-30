@@ -17,7 +17,7 @@ const nameRegex = /^[A-Za-z]+$/;
 const emailRegex =
   /[a-z0-9\._%+!$&*=^|~#%'`?{}/\-]+@([a-z0-9\-]+\.){1,}([a-z]{2,16})/;
 const descriptionRegex = /./;
-const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
 const regexObj = {
   ["f-name"]: nameRegex,
@@ -36,7 +36,7 @@ const inputMessages = {
   ["tel"]: `Please enter a valid phone number in the format 555-555-5555 with or without a '-', '.' or space`,
   ["email"]: `Please enter a valid email address in the format John@example.com`,
   ["description"]: "Cannot be left empty",
-  ["password"]: `Please enter a valid password with at least 8 characters and one number`,
+  ["password"]: `Please enter a valid password with at least 8 characters long with 1 uppercase, 1 lowercase,`,
   ["confirm-password"]: `Please enter a valid password with at least 8 characters and one number`,
   passwordsDontMatch: `Passwords do not match`,
 };
