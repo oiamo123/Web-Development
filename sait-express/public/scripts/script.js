@@ -1,5 +1,4 @@
 const insertAgents = function (packages) {
-  console.log(packages);
   document
     .querySelector(`.article--1`)
     .insertAdjacentHTML(

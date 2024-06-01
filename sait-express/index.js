@@ -7,11 +7,11 @@ const mySql = require("mysql");
 const api = require("./api.js");
 let curPage = "";
 
+// sets up pug
 app.set("views", "views");
-// app.set("views", "views/main-pages");
 app.set("view engine", "pug");
 
-// app.use(express.static("views"));
+// sets up static file routes
 app.use(express.static("public/stylesheets"));
 app.use(express.static("public/scripts"));
 app.use(express.static("views/images"));
@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/api", api);
 
+// Creates server
 const connection = mySql.createConnection({
   host: "localhost",
   user: "root",
@@ -26,11 +27,13 @@ const connection = mySql.createConnection({
   database: "travelexperts",
 });
 
+// connect to server
 connection.connect(function (err) {
   if (err) throw err;
   console.log(`Connected to mySql Database!`);
 });
 
+// app.gets sends html, script and styling
 app.get(["/", "/overview"], (req, res) => {
   const date = new Date().toDateString();
   curPage = greeting();
@@ -57,26 +60,9 @@ app.get("/confirm", (req, res) => {
   res.status(200).render("confirm");
 });
 
-app.get("/create-post", (req, res) => {
-  res.status(200).render("create-post");
-  console.log(req.body);
-});
-
-// app.get("/contactform", (req, res) => {
-//   console.log(req);
-// });
-
-app.post("/contact", (req, res) => {
-  console.log(req.body);
-  res.redirect("confirm");
-});
-
 app.use((req, res, next) => {
   res.status(404).send(`<h1>404 not found</h1>`);
-  //   next()
 });
-
-// app.use(functionName)
 
 app.listen(8000, () => {
   console.log(`The server is listening...`);

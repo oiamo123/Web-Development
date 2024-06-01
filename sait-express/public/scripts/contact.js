@@ -13,10 +13,9 @@ inputMouseOver(inputs1);
 
 submitButton.addEventListener(`click`, (e) => {
   e.preventDefault();
-  submit(e, inputs1);
-  inputs1.forEach((input) => {
-    console.log(input.value);
-  });
+  if (submit(e, inputs1)) {
+    form.submit();
+  }
 });
 
 const renderContactInfo = function (agencies) {

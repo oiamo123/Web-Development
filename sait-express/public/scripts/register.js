@@ -56,7 +56,6 @@ submitButton.addEventListener(`click`, (e) => {
   e.preventDefault();
   if (submit(e, inputs1)) {
     form.submit();
-    window.location.href = "/confirm";
   }
 });
 

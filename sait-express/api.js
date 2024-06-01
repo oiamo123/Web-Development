@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const mySql = require("mysql");
-// const connection = require("");
 
 const connection = mySql.createConnection({
   host: "localhost",
@@ -40,6 +39,11 @@ router.get("/contact", (req, res) => {
   });
 });
 
+router.post("/contact", (req, res) => {
+  console.log(req.body);
+  res.redirect("/confirm");
+});
+
 router.get("/about", (req, res) => {
   connection.query("SELECT * FROM regions", (err, results) => {
     res.status(200).json(results);
@@ -69,6 +73,7 @@ router.post("/register", (req, res) => {
       throw err;
     } else {
       console.log(`data submitted`);
+      res.redirect("/confirm");
     }
   });
 });
