@@ -18,3 +18,24 @@ submitButton.addEventListener(`click`, (e) => {
     console.log(input.value);
   });
 });
+
+const renderContactInfo = function (agencies) {
+  const article = document.querySelector(`article`);
+  agencies.forEach((agency) => {
+    article.insertAdjacentHTML(
+      `afterbegin`,
+      `
+      <section>
+        <h1>${agency.AgncyCity}, ${agency.AgncyProv}</h1>
+        <p>${agency.AgncyAddress}</p>
+        <p>Phone: ${agency.AgncyPhone}</p>
+        <p>Fax: ${agency.AgncyFax}</p>
+      </section>
+    `
+    );
+  });
+};
+
+const data = fetch(`/api/contact`, { method: `GET` })
+  .then((res) => res.json())
+  .then((data) => renderContactInfo(data));

@@ -1,5 +1,3 @@
-console.log(`Hello world`);
-
 const insertAgents = function (packages) {
   console.log(packages);
   document

@@ -43,6 +43,23 @@ h6 {
   isolation: isolate;
 }
 
+article {
+  margin-top: 10vh;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+section {
+  background-color: #44474a;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  gap: 16px;
+  color: white;
+}
+
 body {
   display: flex;
   height: 100vh;
@@ -55,7 +72,7 @@ body {
 }
 
 nav {
-  background-color: #ecd2a4;
+  background-color: #44474a;
   align-items: center;
   display: flex;
   justify-content: space-around;
@@ -66,7 +83,7 @@ nav > a {
   display: block;
   position: relative;
   padding: 0.2em 0;
-  color: black;
+  color: white;
   text-transform: uppercase;
   text-decoration: none;
   overflow: hidden;
@@ -120,19 +137,22 @@ form > div {
 }
 
 button {
+  margin-top: 1rem;
   text-transform: uppercase;
   align-self: flex-start;
   border-radius: 0;
   border: 0;
   padding: 4px 16px;
-  background-color: #ecd2a4;
+  background-color: #44474a;
   margin-bottom: 2rem;
-  margin-left: 2rem;
+  color: white;
+  border-radius: 9999px;
+  transition: all 200ms;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: #b59f79;
+  background-color: #937261;
 }
 
 label {
@@ -153,11 +173,19 @@ textarea {
   button {
     margin-left: 10rem;
   }
+  article {
+    margin-top: 8vh;
+    flex-direction: row;
+    gap: 5rem;
+  }
 }
 
 @media (min-width: 1024px) {
   form {
-    padding: 0 18rem;
+    padding: 2rem 18rem;
+  }
+  nav {
+    padding: 8px 20rem;
   }
   button {
     margin-left: 18rem;

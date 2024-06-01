@@ -1,0 +1,18 @@
+extends template.pug
+block scripts 
+  script(defer src="/about.js")
+block stylesheets 
+  link(rel="stylesheet", href="/about.css")
+block content
+  nav
+    a(href='/overview') Home
+    a(href='/register') Register
+    a(href='/contact') Contact
+  article  
+    .image--container
+      img(src="/about--2.jpg", class="img--2" alt="")
+    section 
+      h1 Travel with us today 
+      p Let your adventure begin here! We believe travel is more than just a getaway—it's a gateway to discovering the world and yourself. With personalized itineraries, exclusive experiences, and a passion for exploration, we transform your travel dreams into unforgettable realities. Whether you're seeking a serene beach retreat, a thrilling mountain trek, or a cultural immersion, our expert team is here to craft the perfect journey tailored just for you. Join us, and let's explore the extraordinary together!
+    .slider
+      .slide-track

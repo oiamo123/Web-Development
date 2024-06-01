@@ -45,6 +45,7 @@ h6 {
 
 body {
   overflow-x: hidden;
+  font-family: "Radio Canada Big";
 }
 
 header {
@@ -319,6 +320,10 @@ footer a {
     height: 40vh;
     flex-grow: 0;
     width: 20vw;
+  }
+
+  .card--1 p {
+    font-size: 14px;
   }
 
   .author {

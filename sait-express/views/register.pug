@@ -7,20 +7,59 @@ block content
   nav
     a(href='/overview') Home
     a(href='/contact') Contact
-  form(action='/register' method='post')
-    label(for='f-name') First Name:
-    input#f-name(type='f-name' name='f-name')
-    div
-    label(for='l-name') Last Name:
-    input#l-name(type='l-name' name='l-name')
-    div
-    label(for='email') Email:
-    input#email(type='text' name='email')
-    div
-    label(for='password') Password:
-    input#password(type='password' name='password' autocomplete="on")
-    div
-    label(for='confirm-password') Confirm Password:
-    input#confirm-password(type='password' name='confirm-password' autocomplete="on")
-    div
-  button.submit--button Submit
+    a(href="/about") About
+  div
+    .image-container
+      img(src='/register.jpg' alt='')
+      div
+        h1 EXPLORE IN THE BEST WAY POSSIBLE
+    form(action='/api/register' method='post')
+      fieldset
+        label(for='f-name') First Name:
+        input#f-name(type='f-name' name='f-name')
+        div
+        label(for='l-name') Last Name:
+        input#l-name(type='l-name' name='l-name')
+        div
+        label(for='tel') Home phone number:
+        input#tel(type='text' name='tel')
+        div
+        label(for='tel') Business Phone Number:
+        input#tel(type='text' name='business-tel')
+        div
+        label(for='email') Email:
+        input#email.not-required(type='text' name='email')
+        div
+        button.next--button Submit
+      fieldset
+        label(for='country') Country:
+        input#country(type='text' name='country')
+        div
+        label(for='city') City:
+        input#city(type='text' name='city')
+        div
+        label(for='province') Province:
+        select#province(name='province')
+          option(value='BC') British Columbia
+          option(value='AB') Alberta
+          option(value='SK') Saskatchewan
+          option(value='MB') Manitoba
+          option(value='ON') Ontario
+          option(value='QC') Quebec
+          option(value='NL') Newfoundland
+          option(value='NB') New Brunswick
+          option(value='NS') Nova Scotia
+          option(value='PE') Prince Edward Island
+          option(value='YU') Yukon
+          option(value='NU') Nunavut
+          option(value='NW') North West Territoeies
+        div
+        label(for='address') Address
+        input#address(type='text' name='address')
+        div
+        label(for='postal-code') Postal Code:
+        input#postal-code(type='text' name='postal-code')
+        div
+        section
+          button.submit--button Submit
+          button.prev--button Previous

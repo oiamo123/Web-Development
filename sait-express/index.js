@@ -41,6 +41,10 @@ app.get(["/", "/overview"], (req, res) => {
   });
 });
 
+app.get("/about", (req, res) => {
+  res.status(200).render("about");
+});
+
 app.get("/contact", (req, res) => {
   res.status(200).render("contact");
 });
@@ -63,12 +67,6 @@ app.get("/create-post", (req, res) => {
 // });
 
 app.post("/contact", (req, res) => {
-  console.log(req.body);
-  res.redirect("confirm");
-});
-
-app.post("/register", (req, res) => {
-  console.log(`test`);
   console.log(req.body);
   res.redirect("confirm");
 });
