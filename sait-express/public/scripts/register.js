@@ -17,11 +17,6 @@ form.addEventListener(`submit`, (e) => {
 });
 
 inputMouseOver(inputs1);
-
-// submitButton.addEventListener(`click`, (e) => {
-//   e.preventDefault();
-//   submit(e, inputs1);
-// });
 fieldsets.forEach((fieldset, i) => {
   fieldset.style.transform = `translateX(${i * 300}%)`;
 });
@@ -66,6 +61,7 @@ window.addEventListener(`keydown`, (e) => {
   }
 });
 
+// RENDERS AGENTS ON WEBPAGE
 const renderAgents = function (agents) {
   document.querySelector(`.next--button`).insertAdjacentHTML(
     `beforebegin`,
@@ -82,6 +78,7 @@ const renderAgents = function (agents) {
   });
 };
 
-const data = fetch("/api/agents", { method: "GET" })
+// FETCHES AGENTS FROM API AND INSERTS IT ON WEBPAGE
+const data = fetch("/api/register", { method: "GET" })
   .then((response) => response.json())
   .then((agents) => renderAgents(agents));

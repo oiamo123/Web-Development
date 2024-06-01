@@ -18,6 +18,7 @@ submitButton.addEventListener(`click`, (e) => {
   }
 });
 
+// RENDERS CONTACT INFO ON WEBPAGE
 const renderContactInfo = function (agencies) {
   const article = document.querySelector(`article`);
   agencies.forEach((agency) => {
@@ -35,6 +36,7 @@ const renderContactInfo = function (agencies) {
   });
 };
 
+// FETCHES CONTACT INFO FROM API AND INSERTS IT ON WEBPAGE
 const data = fetch(`/api/contact`, { method: `GET` })
   .then((res) => res.json())
   .then((data) => renderContactInfo(data));

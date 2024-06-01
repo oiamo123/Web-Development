@@ -1,7 +1,7 @@
 const p = document.querySelector(`p`);
 let time = 5;
-console.log(p);
 
+// FOR CONFIRMATION PAGE. UPDATES TIME AND REDIRECTS TO HOME PAGE
 window.addEventListener("load", () => {
   p.textContent = `You will be redirected in ${time} seconds.`;
   setInterval(() => {

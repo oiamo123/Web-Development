@@ -1,4 +1,6 @@
-const insertAgents = function (packages) {
+// INSERTS PACKAGES ONTO WEBPAGE
+
+const insertPackages = function (packages) {
   document
     .querySelector(`.article--1`)
     .insertAdjacentHTML(
@@ -23,9 +25,10 @@ const insertAgents = function (packages) {
   });
 };
 
-const data = fetch(`/api/packages`, { method: "GET" })
+// FETCHES DATA FROM API AND INSERTS IT ONTO WEBPAGE
+const data = fetch(`/api/overview`, { method: "GET" })
   .then((res) => res.json())
-  .then((packages) => insertAgents(packages))
+  .then((packages) => insertPackages(packages))
   .catch((err) => {
     if (err) throw err;
   });

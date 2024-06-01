@@ -1,3 +1,5 @@
+// USED TO SEND OUT FILES
+
 const express = require("express");
 const greeting = require("./public/scripts/modules/greeting");
 const app = express();
@@ -60,6 +62,7 @@ app.get("/confirm", (req, res) => {
   res.status(200).render("confirm");
 });
 
+// sends 404 if page not found
 app.use((req, res, next) => {
   res.status(404).send(`<h1>404 not found</h1>`);
 });

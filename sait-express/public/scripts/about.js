@@ -1,3 +1,4 @@
+// RENDERS REGIONS ON WEBPAGE
 const renderRegions = function (regions) {
   console.log(regions);
   const regionsFiltered = regions.filter(
@@ -15,6 +16,7 @@ const renderRegions = function (regions) {
   });
 };
 
+// FETCHES REGIONS FROM API AND INSERTS IT ON WEBPAGE
 fetch("/api/about", { method: "GET" })
   .then((res) => res.json())
   .then((data) => renderRegions(data));

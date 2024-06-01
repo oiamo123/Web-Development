@@ -1,3 +1,5 @@
+// USED TO SEND OUT AND RECEIVE DATA
+
 const express = require("express");
 const router = express.Router();
 const mySql = require("mysql");
@@ -9,17 +11,20 @@ const connection = mySql.createConnection({
   database: "travelexperts",
 });
 
-router.get("/packages", (req, res) => {
+// sends packages data to overview page
+router.get("/overview", (req, res) => {
   connection.query("SELECT * FROM packages", (err, results) => {
     if (err) {
       throw err;
     } else {
       res.status(200).json(results);
+      console.log(results);
     }
   });
 });
 
-router.get("/agents", (req, res) => {
+// sends agents data to register page
+router.get("/register", (req, res) => {
   connection.query("SELECT * FROM agents", (err, results) => {
     if (err) {
       throw err;
@@ -29,6 +34,7 @@ router.get("/agents", (req, res) => {
   });
 });
 
+// sends addresses data to contact page
 router.get("/contact", (req, res) => {
   connection.query("SELECT * FROM agencies", (err, results) => {
     if (err) {
@@ -39,17 +45,20 @@ router.get("/contact", (req, res) => {
   });
 });
 
+// listens for contact form and redirects to confirm page
 router.post("/contact", (req, res) => {
   console.log(req.body);
   res.redirect("/confirm");
 });
 
+// sends locations data to about page
 router.get("/about", (req, res) => {
   connection.query("SELECT * FROM regions", (err, results) => {
     res.status(200).json(results);
   });
 });
 
+// writes register form data to database
 router.post("/register", (req, res) => {
   console.log(req);
   const values = [
