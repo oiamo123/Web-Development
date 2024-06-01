@@ -18,7 +18,6 @@ router.get("/overview", (req, res) => {
       throw err;
     } else {
       res.status(200).json(results);
-      console.log(results);
     }
   });
 });
@@ -60,7 +59,7 @@ router.get("/about", (req, res) => {
 
 // writes register form data to database
 router.post("/register", (req, res) => {
-  console.log(req);
+  console.log(req.body);
   const values = [
     req.body["f-name"],
     req.body["l-name"],
@@ -77,11 +76,9 @@ router.post("/register", (req, res) => {
   const sql =
     "INSERT INTO `customers` (`CustomerId`, `CustFirstName`, `CustLastName`, `CustAddress`, `CustCity`, `CustProv`, `CustCountry`, `CustPostal`, `CustHomePhone`, `CustBusPhone`, `CustEmail`, `AgentId`) VALUES (null,?,?,?,?,?,?,?,?,?,?,?)";
   connection.query(sql, values, (err, results) => {
-    console.log(sql + values);
     if (err) {
       throw err;
     } else {
-      console.log(`data submitted`);
       res.redirect("/confirm");
     }
   });
